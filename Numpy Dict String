@@ -1,0 +1,110 @@
+### Numpy Operations
+```python
+import numpy as np
+
+# Given scores
+score = np.array([85, 90, 78, 92, 88])
+
+# a) Convert the data type into float
+score_float = score.astype(float)
+
+# b) Create a copy of "score" named "a_score" and add 5 points to it
+# Original score will remain unchanged
+a_score = score.copy()
+a_score += 5
+
+# c) Find shape, ndim, size, itemsize, dtype, and sort
+shape = a_score.shape
+ndim = a_score.ndim
+size = a_score.size
+itemsize = a_score.itemsize
+dtype = a_score.dtype
+sorted_scores = np.sort(a_score)
+
+# d) Find the index of scores > 80
+indices_above_80 = np.where(score > 80)[0]
+
+# e) Calculate min, max, std, var, sum, mean, axis-wise mean
+min_score = np.min(score)
+max_score = np.max(score)
+std_score = np.std(score)
+var_score = np.var(score)
+sum_score = np.sum(score)
+mean_score = np.mean(score)
+
+# f) Perform slicing
+sliced_scores_1 = score[::2]
+sliced_scores_2 = score[-3:]
+sliced_scores_3 = score[1:4]
+```
+
+### Dictionary Operations
+```python
+# Given dictionary
+employee = {
+    "name": "A",
+    "age": 40,
+    "type": {"developer": ["iOS", "android"]},
+    "permanent": True,
+    "salary": 30000,
+    100: (1, 2, 3),
+    4.5: {5, 6, 7, 1},
+}
+
+# 1) Print length and type of dictionary
+length = len(employee)
+type_of_employee = type(employee)
+
+# 2) Access the key "type" and "developer"
+developer = employee["type"]["developer"]
+
+# 3) Change the value of "permanent" to False
+employee["permanent"] = False
+
+# 4) Add a new key "gender" with value "male"
+employee["gender"] = "male"
+
+# 5) Remove "age" key from the dictionary
+employee.pop("age")
+
+# 6) Use keys(), values(), items()
+keys = employee.keys()
+values = employee.values()
+items = employee.items()
+
+# 7) Iterate the dictionary using a loop
+for key, value in employee.items():
+    print(f"Key: {key}, Value: {value}")
+```
+
+### String Operations
+```python
+# Given strings
+a = "hello"
+b = "b2b2b2 "
+c = " 3g3g. "
+
+# 1) Declare a new variable and concatenate (a, b, c)
+d = a + b + c
+
+# 2) Find the length of d and print slices
+length_of_d = len(d)
+sliced_d = d[:]
+
+# 3) Check if "a2" is present in d
+is_a2_present = "a2" in d
+
+# 4) Perform various string operations
+uppercase_d = d.upper()
+lowercase_d = d.lower()
+titlecase_d = d.title()
+strip_d = d.strip()
+isdigit_d = d.isdigit()
+find_3g = d.find("3g")
+capitalize_d = d.capitalize()
+isalnum_d = d.isalnum()
+count_b2 = d.count("b2")
+split_d = d.split()
+swapcase_d = d.swapcase()
+replace_hello_with_python = d.replace("hello", "python")
+```

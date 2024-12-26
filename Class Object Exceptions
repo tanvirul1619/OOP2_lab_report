@@ -1,0 +1,163 @@
+# Solution for the problems in the uploaded images
+
+# 1. Class and Object - Product and Electronic Product
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def display_detail(self):
+        print(f"Name: {self.name}, Price: {self.price}")
+
+class ElectronicProduct(Product):
+    def __init__(self, name, price, warranty):
+        super().__init__(name, price)
+        self.warranty = warranty
+
+    def display_detail(self):
+        super().display_detail()
+        print(f"Warranty: {self.warranty} years")
+
+# Example usage
+product = ElectronicProduct("Laptop", 50000, 2)
+product.display_detail()
+
+# 2. Shape and Rectangle
+class Shape:
+    def __init__(self, name):
+        self.name = name
+
+    def get_name(self):
+        return self.name
+
+    def display_info(self):
+        print(f"Shape: {self.name}")
+
+class Rectangle(Shape):
+    def __init__(self, name, length, width):
+        super().__init__(name)
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+# Example usage
+rectangle = Rectangle("Rectangle", 10, 5)
+rectangle.display_info()
+print(f"Area: {rectangle.area()}")
+print(f"Perimeter: {rectangle.perimeter()}")
+
+# 3. Encapsulation - Vehicle and Taxi
+class Vehicle:
+    def __init__(self, color):
+        self.color = color
+
+    def vehicle_info(self):
+        print(f"Color: {self.color}")
+
+class Taxi(Vehicle):
+    def __init__(self, color, model, capacity, variant):
+        super().__init__(color)
+        self.__model = model
+        self.__capacity = capacity
+        self.__variant = variant
+
+    def get_model(self):
+        return self.__model
+
+    def set_model(self, model):
+        self.__model = model
+
+    def get_capacity(self):
+        return self.__capacity
+
+    def set_capacity(self, capacity):
+        self.__capacity = capacity
+
+    def get_variant(self):
+        return self.__variant
+
+    def set_variant(self, variant):
+        self.__variant = variant
+
+    def vehicle_info(self):
+        super().vehicle_info()
+        print(f"Model: {self.__model}, Capacity: {self.__capacity}, Variant: {self.__variant}")
+
+# Example usage
+t1 = Taxi("Yellow", "Sedan", 4, "Diesel")
+t2 = Taxi("White", "SUV", 7, "Petrol")
+t1.vehicle_info()
+t2.vehicle_info()
+
+# 4. Exception Handling
+# a. Custom Exception - InvalidVoterException
+class InvalidVoterException(Exception):
+    pass
+
+def check_voter(age):
+    if age < 18:
+        raise InvalidVoterException("Age must be at least 18 to vote.")
+    print("You are eligible to vote.")
+
+# Example usage
+try:
+    age = int(input("Enter age: "))
+    check_voter(age)
+except InvalidVoterException as e:
+    print(e)
+
+# b. Custom Exception - SalaryNotInRange
+class SalaryNotInRange(Exception):
+    pass
+
+def check_salary(salary):
+    if salary < 10000 or salary > 50000:
+        raise SalaryNotInRange("Salary must be between 10000 and 50000.")
+    print("Salary is within range.")
+
+# Example usage
+try:
+    salary = int(input("Enter salary: "))
+    check_salary(salary)
+except SalaryNotInRange as e:
+    print(e)
+
+# c. Exception Handling - Division
+arr = [10, 5, 15, 20]
+try:
+    divisor = int(input("Enter divisor: "))
+    for i in arr:
+        print(i / divisor)
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+except ValueError:
+    print("Invalid input. Please enter an integer.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+# d. Custom Exception - InsufficientFunds
+class InsufficientFunds(Exception):
+    pass
+
+class BankAccount:
+    def __init__(self, balance):
+        self.balance = balance
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            raise InsufficientFunds("Insufficient funds in the account.")
+        self.balance -= amount
+        print(f"Withdrawal successful. Remaining balance: {self.balance}")
+
+# Example usage
+try:
+    account = BankAccount(1000)
+    amount = int(input("Enter amount to withdraw: "))
+    account.withdraw(amount)
+except InsufficientFunds as e:
+    print(e)

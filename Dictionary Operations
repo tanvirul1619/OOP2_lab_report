@@ -1,0 +1,38 @@
+# Define the dictionary
+employee = {
+    "name": "A",
+    "age": 40,
+    "type": {"developer": ["iOS", "android"]},
+    "permanent": True,
+    "salary": 30000,
+    100: (1, 2, 3),
+    4.5: {5, 6, 7, 1}
+}
+
+# 1. Print length and type of the dictionary
+print("Length of employee dictionary:", len(employee))
+print("Type of employee dictionary:", type(employee))
+
+# 2. Access the key "type" -> "developer"
+print("Accessing 'developer':", employee["type"]["developer"])
+
+# 3. Change the value of "permanent" to False
+employee["permanent"] = False
+print("Updated 'permanent':", employee["permanent"])
+
+# 4. Add new key "gender" with value "male"
+employee["gender"] = "male"
+print("Added 'gender':", employee)
+
+# 5. Remove the "age" key
+employee.pop("age", None)
+print("Dictionary after removing 'age':", employee)
+
+# 6. Use keys(), values(), items()
+print("Keys:", list(employee.keys()))
+print("Values:", list(employee.values()))
+print("Items:", list(employee.items()))
+
+# 7. Iterate through the dictionary using a loop
+for key, value in employee.items():
+    print(f"Key: {key}, Value: {value}")

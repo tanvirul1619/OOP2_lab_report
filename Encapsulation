@@ -1,0 +1,44 @@
+class Vehicle:
+    def __init__(self, color):
+        self.color = color
+
+    def vehicle_info(self):
+        print(f"Vehicle Color: {self.color}")
+
+
+class Taxi(Vehicle):
+    def __init__(self, color, model, capacity, variant):
+        super().__init__(color)
+        self.__model = model
+        self.__capacity = capacity
+        self.__variant = variant
+
+    def get_model(self):
+        return self.__model
+
+    def set_model(self, model):
+        self.__model = model
+
+    def get_capacity(self):
+        return self.__capacity
+
+    def set_capacity(self, capacity):
+        self.__capacity = capacity
+
+    def get_variant(self):
+        return self.__variant
+
+    def set_variant(self, variant):
+        self.__variant = variant
+
+    def display_info(self):
+        self.vehicle_info()
+        print(f"Model: {self.__model}, Capacity: {self.__capacity}, Variant: {self.__variant}")
+
+
+# Example usage
+t1 = Taxi("Red", "Toyota", 4, "Hybrid")
+t2 = Taxi("Blue", "Honda", 6, "Electric")
+
+t1.display_info()
+t2.display_info()

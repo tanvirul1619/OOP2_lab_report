@@ -1,0 +1,40 @@
+# Tuple given
+a = (1, 3, 5, 7, 4)
+
+# a) Find the sum of all odd numbers in the tuple
+sum_odd = sum(x for x in a if x % 2 != 0)
+print("Sum of odd numbers:", sum_odd)
+
+# b) Find the index of the first element in the tuple
+first_index = a.index(a[0])
+print("Index of the first element:", first_index)
+
+# c) Count the number of odd and even numbers separately
+odd_count = len([x for x in a if x % 2 != 0])
+even_count = len([x for x in a if x % 2 == 0])
+print("Odd numbers count:", odd_count)
+print("Even numbers count:", even_count)
+
+# d) Extend the tuple with (2, 4, 6)
+extended_tuple = a + (2, 4, 6)
+print("Extended tuple:", extended_tuple)
+
+# e) Add a new item (400) at index 2
+tuple_list = list(a)
+tuple_list.insert(2, 400)
+a_with_400 = tuple(tuple_list)
+print("Tuple after adding 400 at index 2:", a_with_400)
+
+# f) Remove the last element
+tuple_without_last = a[:-1]
+print("Tuple after removing the last element:", tuple_without_last)
+
+# g) Perform slicing [-4::-1]
+sliced_tuple = a[-4::-1]
+print("Sliced tuple [-4::-1]:", sliced_tuple)
+
+# h) Print the tuple using a loop and use 'continue' if you get 5
+for item in a:
+    if item == 5:
+        continue
+    print(item)
